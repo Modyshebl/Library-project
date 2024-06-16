@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Library</title>
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+
+<body>
+  <nav class="navbar">
+    <h1 class="left">Library</h1>
+    <form id="search">
+      <input id="searchBar" class="searchbar" type="search" name="searchbar" placeholder="Search for your desired book">
+    </form>
+
+    <div class="right" id="right">
+      <a href="home.html">Home</a>
+    </div>
+  </nav>
+
+  <main>
+    <h1>Browse Books</h1>
+    <section id="books">
+      {% for book in books %}
+      <a href="{% url 'bookPage' book.id %}">
+        <div class="book">
+          <img src="{{book.cover.url}}" alt="Book Cover">
+        </div>
+      </a>
+      {% endfor %}
+    </section>
+  </main>
+  <script src="scripts/home.js"></script>
+  <script src="scripts/navbar.js"></script>
+</body>
+
+</html>

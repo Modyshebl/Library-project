@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ book.title }}</title>
+  <link rel="stylesheet" href="{% static 'css/algoBook.css' %}">
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+</head>
+<body>
+  <nav class="navbar">
+    <h1 class="left">Library</h1>
+    <form id="search">
+      <input id="searchBar" class="searchbar" type="search" name="searchbar" placeholder="Search for your desired book">
+    </form>
+    <div class="right" id="right">
+      <a href="home.html">Home</a>
+    </div>
+  </nav>
+
+  <main>
+    <section>
+      <div class="title">
+        <h2 id="title">{{ book.title }}</h2>
+      </div>
+      <div class="content">
+        <div class="img">
+          <img id="cover-image" src="{{ book.cover.url }}" alt="Cover Image">
+        </div>
+        <div class="text">
+          <h4>ISBN:</h4>
+          <p id="isbn">{{ book.isbn }}</p>
+          <h4>Authors:</h4>
+          <p id="authors">{{ book.authors }}</p>
+          <h4>Genre:</h4>
+          <p id="genre">{{ book.genre }}</p>
+          <h4>Publication Year:</h4>
+          <p id="publicationYear">{{ book.publication_year }}</p>
+          <h4>Description:</h4>
+          <p id="description">{{ book.description }}</p>
+          <div class="editButtons">
+            <button>Borrow</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="scripts/navbar.js"></script>
+  <script src="scripts/bookPage.js"></script>
+</body>
+</html>
